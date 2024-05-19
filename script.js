@@ -1,3 +1,7 @@
+
+
+
+
 document.getElementById("submit").addEventListener("click", (event)=>{
 	
 	event.preventDefault();
@@ -10,9 +14,11 @@ document.getElementById("submit").addEventListener("click", (event)=>{
 		localStorage.setItem("Password", password);
 		alert("Logged in as " + username);
 		document.getElementById("myform").reset();
+		document.getElementById("existing").style.display = "block";
 	}else{
 		localStorage.removeItem("Username");
         localStorage.removeItem("Password");
+		document.getElementById("existing").style.display = "none";
 	}
 })
 
@@ -23,6 +29,7 @@ document.getElementById("existing").addEventListener("click", (event) => {
 
 	let saveduser= localStorage.getItem("Username");
 	if(saveduser){
+		
 		 alert("Logged in as " + saveduser);
 	
 	}else{
